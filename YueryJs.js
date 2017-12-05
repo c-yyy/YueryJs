@@ -1,11 +1,11 @@
 /**
 * Yuery library (v1.0.0)
 * Licensed under the MIT License.
-* http://www.cnblogs.com/ghostwu/
+* https://c-yyy.github.io/
 *
-* Copyright ghostwu
+* Copyright inpm
 * Licensed under the MIT License
-* https://github.com/ghostwu/Yuery
+* https://github.com/c-yyy/Yuery
 */
 (function (window, undefined) {
     function bindEvent(obj, event, fn) {
