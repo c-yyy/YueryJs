@@ -1,11 +1,11 @@
 /**
-* gdom library (v1.0.0)
+* Yuery library (v1.0.0)
 * Licensed under the MIT License.
 * http://www.cnblogs.com/ghostwu/
 *
 * Copyright ghostwu
 * Licensed under the MIT License
-* https://github.com/ghostwu/gdom
+* https://github.com/ghostwu/Yuery
 */
 (function (window, undefined) {
     function bindEvent(obj, event, fn) {

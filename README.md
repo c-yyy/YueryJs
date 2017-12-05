@@ -1,4 +1,4 @@
-# YueryJs
+# YueryJs (读音类似:伊尔睿Js)
 cover by jQuery
 # YueryJs 使用方法
 a javascript framework for operating dom and string<br/>
