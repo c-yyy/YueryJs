@@ -1,8 +1,11 @@
 # YueryJs (读音类似:伊尔睿)
 cover by jQuery
+//2017.12.8更新
+修改部分方法兼容IE
 # YueryJs 使用方法
 a javascript framework for operating dom and string<br/>
 会用jquey就会用YueryJs<br/>
+
 YueryJs选择器有两种写法： Y( 选择器 ) 和 $( 选择器 )<br/>
 YueryJs的加载： Y( function(){} )    $( function() {} );<br/>
 
