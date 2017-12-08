@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>属性选择器</title>
+    <script src="../lib/gdom1.0.0.js"></script>
+    <link rel="stylesheet" href="../css/common.css">
+    <script>
+        Y(function(){
+//             Y( "[id]" ).css( "border", "1px solid #09f" );
+//             Y( "[id][class]" ).css( "border", "1px solid #09f" );
+//             Y( "[data-tarYet]" ).css( "border", "1px solid #09f" );
+//             Y( "[class*=desc]" ).css( "border", "1px solid #09f" );
+//             Y( "[class^=desc]" ).css( "border", "1px solid #09f" );
+            Y( "[class$=desc]" ).css( "border", "1px solid #09f" );
+        });
+    </script>
+</head>
+<body>
+    <div id="box">YueryJs是一个dom处理和字符串处理的框架</div>
+    <div id="box2" class="desc">YueryJs是一个dom处理和字符串处理的框架</div>
+    <div id="box3" class="desc" data-target="abc">YueryJs是一个dom处理和字符串处理的框架</div>
+    <div id="box4" class="desc1 desc2 desc3" data-target="abc">YueryJs是一个dom处理和字符串处理的框架</div>
+</body>
+</html>
