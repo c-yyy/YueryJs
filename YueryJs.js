@@ -26,11 +26,11 @@
             return getComputedStyle(obj, false)[attr];
         }
     }
-    var G = function (selector, context) {
-        return new G.fn.init(selector, context);
+    var Y = function (selector, context) {
+        return new Y.fn.init(selector, context);
     };
-    G.fn = G.prototype = {
-        constructor: G,
+    Y.fn = Y.prototype = {
+        constructor: Y,
         init: function (selector, context) {
             this.length = 0;
             context = context || document;
@@ -38,8 +38,8 @@
                 this[0] = document.getElementById(selector.substring(1));
                 this.length = 1;
             } else if (typeof selector === 'string') {
-                //事件委托时 把G类型的context对象转成dom对象
-                if (context instanceof G) {
+                //事件委托时 把Y类型的context对象转成dom对象
+                if (context instanceof Y) {
                     context = context.getDom();
                     if (context[0]) {
                         context = context[0];
@@ -287,7 +287,7 @@
             }
             if (allNode) {
                 this.empty();
-                G.fn.extend(this, allNode);
+                Y.fn.extend(this, allNode);
             }
             return this;
         },
@@ -305,7 +305,7 @@
             }
             if (allNode) {
                 this.empty();
-                G.fn.extend(this, allNode);
+                Y.fn.extend(this, allNode);
             }
             return this;
         },
@@ -325,7 +325,7 @@
             }
             if (allNode) {
                 this.empty();
-                G.fn.extend(this, allNode);
+                Y.fn.extend(this, allNode);
             }
             return this;
         },
@@ -336,7 +336,7 @@
                 nextNode = nextNode.nextElementSibling || nextNode.nextSibling;
                 if (nextNode === null) break;
             }
-            return (!nextNode ? null : G(nextNode));
+            return (!nextNode ? null : Y(nextNode));
         },
         prev: function () {
             var prevNode = null;
@@ -345,7 +345,7 @@
                 prevNode = prevNode.previousElementSibling || prevNode.previousSibling;
                 if (prevNode == null) break;
             }
-            return (!prevNode ? null : G(prevNode));
+            return (!prevNode ? null : Y(prevNode));
         },
         get: function (index) {
             return this[index];
@@ -482,28 +482,28 @@
         },
     }
 
-    G.fn.init.prototype = G.fn;
+    Y.fn.init.prototype = Y.fn;
 
     var sProto = String.prototype;
-    G.isNum = function (n) {
+    Y.isNum = function (n) {
         var n = Number(n);
         return (isNaN(n) ? false : true);
     }
-    G.trimLeft = function (s) {
+    Y.trimLeft = function (s) {
         if (sProto.trimLeft !== undefined)
             s = s.trimLeft();
         else
             s = s.replace(/^\s+/g, '');
         return s;
     }
-    G.trimRight = function (s) {
+    Y.trimRight = function (s) {
         if (sProto.trimRight !== undefined)
             s = s.trimRight();
         else
             s = s.replace(/\s+$/g, '');
         return s;
     }
-    G.trim = function (s) {
+    Y.trim = function (s) {
         if (typeof sProto.trim !== undefined) {
             s = s.trim();
         } else {
@@ -511,13 +511,13 @@
         }
         return s;
     }
-    G.parseHtmlTag = function (str) {
+    Y.parseHtmlTag = function (str) {
         var re = /<(\w+\s*)(\w+[=][\'\"](.*)?[\'\"]\s*)*>(.*)?<\/\w+>/,
             // var str = '<div onclick="test();" style="color:red;background:green;" name="test" id="test">this is a test string</div><div>123</div>';
             res = str.match(re),
             tagName = null, attrList = [], arr = [], obj = {};
         if (res[1]) {
-            tagName = G.trim(res[1]);
+            tagName = Y.trim(res[1]);
             obj['tag'] = tagName;
         }
         if (res[4]) {
@@ -527,8 +527,8 @@
             attrList = res[2].split(/\s+/);
             for (var i = 0, len = attrList.length; i < len; i++) {
                 arr = attrList[i].split("=");
-                arr[0] = G.trim(arr[0]);
-                obj[arr[0]] = G.trim(arr[1]).replace(/(^[\'\"]+|[\'\"]$)/g, function () {
+                arr[0] = Y.trim(arr[0]);
+                obj[arr[0]] = Y.trim(arr[1]).replace(/(^[\'\"]+|[\'\"]$)/g, function () {
                     return '';
                 });
             }
@@ -542,14 +542,14 @@
         }
         return o;
     }
-    G.isArray = function (obj) {
+    Y.isArray = function (obj) {
         if (Array.isArray) {
             return Array.isArray(obj);
         } else {
             return Object.prototype.toString.call(obj) === "[object Array]";
         }
     }
-    G.toArray = function (nodes) {
+    Y.toArray = function (nodes) {
         try {
             return Array.prototype.slice.call(nodes);
         } catch (e) {
@@ -560,13 +560,13 @@
             return arr;
         }
     }
-    G.flatten = function (arr) {
+    Y.flatten = function (arr) {
         var res = [];
         for (var i = 0, len = arr.length; i < len; i++) {
             if (arr[i].length) arr[i] = G.toArray(arr[i]);
         }
         for (var i = 0, len = arr.length; i < len; i++) {
-            if (G.isArray(arr[i])) {
+            if (Y.isArray(arr[i])) {
                 for (var j = 0, sLen = arr[i].length; j < sLen; j++) {
                     res.push(arr[i][j]);
                 }
@@ -576,7 +576,7 @@
         }
         return res;
     }
-    G.extend = G.fn.extend = function () {
+    Y.extend = Y.fn.extend = function () {
         var i = 1,
             len = arguments.length,
             dst = arguments[0],
@@ -596,5 +596,5 @@
         }
         return dst;
     }
-    window.G = window.$ = G;
+    window.Y = window.$ = Y;
 })(window);
