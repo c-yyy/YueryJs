@@ -61,7 +61,7 @@
             return this;
         },
         length: 0,
-        version : 'v1.0.0',
+        version : 'v1.0.3',
         size: function () {
             return this.length;
         },
